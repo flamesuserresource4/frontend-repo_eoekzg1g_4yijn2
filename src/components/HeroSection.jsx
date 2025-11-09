@@ -1,5 +1,4 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
 import { Download, Mail, Shield, Cpu, Server } from 'lucide-react';
 
 const HeroSection = () => {
@@ -17,10 +16,27 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="beranda" className="relative min-h-[90vh] w-full overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white">
+    <section id="beranda" className="relative min-h-[90vh] w-full overflow-hidden bg-slate-900 text-white">
+      {/* Background: lightweight gradients + grid */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/30 to-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800" />
+        {/* Subtle tech grid */}
+        <svg className="pointer-events-none absolute inset-0 opacity-[0.09]" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+              <path d="M 32 0 L 0 0 0 32" fill="none" stroke="white" strokeWidth="0.5" />
+            </pattern>
+            <radialGradient id="glow" cx="50%" cy="20%" r="60%">
+              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#1E293B" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#glow)" />
+        </svg>
+        {/* Accent blobs */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-16 -right-16 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 py-20 md:flex-row md:gap-16">
@@ -63,9 +79,10 @@ const HeroSection = () => {
 
         <div className="relative w-full md:w-1/2">
           <img
-            src="https://images.unsplash.com/photo-1542219550-37153d387c47?q=80&w=1200&auto=format&fit=crop"
-            alt="Foto Profil"
-            className="mx-auto hidden h-64 w-64 rounded-full border-4 border-blue-500 object-cover shadow-lg ring-1 ring-slate-700 md:block"
+            src="https://i.imgur.com/boxmRVU.jpeg"
+            alt="Foto Shello Ardiansyah"
+            className="mx-auto h-64 w-64 rounded-full border-4 border-blue-500 object-cover shadow-lg ring-1 ring-slate-700"
+            loading="eager"
           />
         </div>
       </div>
